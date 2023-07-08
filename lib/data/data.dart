@@ -171,7 +171,7 @@ final List<Post> posts = [
     timeAgo: '58m',
     imageUrl: 'https://images.unsplash.com/photo-1525253086316-d0c936c814f8',
     likes: 1202,
-    comments: 184,
+    comments: 2000,
     shares: 96,
   ),
   Post(

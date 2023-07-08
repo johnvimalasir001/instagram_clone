@@ -1,7 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:instagram_clone/data/data.dart';
-import 'package:instagram_clone/models/models.dart';
 import 'package:instagram_clone/widgets/widgets.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
@@ -17,6 +16,7 @@ class HomeScreen extends StatelessWidget {
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
+            toolbarHeight: 80,
             floating: true,
             elevation: 10,
             expandedHeight: 50,
@@ -56,17 +56,17 @@ class HomeScreen extends StatelessWidget {
               child: CustomStories(onlineUsers: onlineUsers),
             ),
           ),
-          SliverList(
+          SliverGrid(
             delegate: SliverChildBuilderDelegate(
-              (BuildContext context, int index) {
-                final postIndex = index - 1;
-                if (postIndex < 0) {
-                  return Container();
-                }
-                final Post post = posts[postIndex];
-                return PostContainer(post: post);
-              },
-              childCount: 1 + posts.length,
+              (context, index) => PostContainer(
+                post: posts[index],
+              ),
+            ),
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 1,
+              mainAxisSpacing: 0,
+              childAspectRatio: 0.6,
+              crossAxisSpacing: 0,
             ),
           ),
         ],

@@ -71,7 +71,7 @@ class _NavScreenState extends State<NavScreen> {
             BottomNavigationBarItem(
               label: '',
               icon: CircleAvatar(
-                radius: 20,
+                radius: 17.5,
                 backgroundImage:
                     CachedNetworkImageProvider(currentUser.imageUrl),
               ),
