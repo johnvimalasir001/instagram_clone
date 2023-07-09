@@ -56,17 +56,12 @@ class HomeScreen extends StatelessWidget {
               child: CustomStories(onlineUsers: onlineUsers),
             ),
           ),
-          SliverGrid(
+          SliverList(
             delegate: SliverChildBuilderDelegate(
+              childCount: posts.length,
               (context, index) => PostContainer(
                 post: posts[index],
               ),
-            ),
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 1,
-              mainAxisSpacing: 0,
-              childAspectRatio: 0.6,
-              crossAxisSpacing: 0,
             ),
           ),
         ],
